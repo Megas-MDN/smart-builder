@@ -1,17 +1,11 @@
 import { Stack } from "@mui/material";
-// import { Text } from "../../components/Text";
 import { ButtonCalc } from "../../components/ButtonCalc";
 import WidgetsIcon from "@mui/icons-material/Widgets";
-import { MainHeader } from "../../components/MainHeader";
-import HouseIcon from "@mui/icons-material/House";
-import { Text } from "../../components/Text";
+import { HeaderWithText } from "../../components/HeaderWithText";
 export const MainPage = () => {
   return (
     <Stack className="h-screen bg-gray-100 flex flex-col items-center gap-4">
-      <MainHeader
-        title={<Text sx={{ fontSize: "24px" }}>Smart Obra</Text>}
-        icon={<HouseIcon fontSize="large" className="text-white" />}
-      />
+      <HeaderWithText />
       <Stack
         direction={"row"}
         flexWrap={"wrap"}
