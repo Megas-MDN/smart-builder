@@ -15,6 +15,7 @@ export const ListNavActions = ({ sx }: { sx?: SxProps }) => {
     >
       <ButtonFullRound />
       <ButtonFullRound
+        label="Nova lista"
         icon={
           <AddIcon
             className="text-white"
