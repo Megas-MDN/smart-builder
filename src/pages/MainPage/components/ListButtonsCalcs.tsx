@@ -5,32 +5,14 @@ import { Text } from "../../../components/Text";
 
 export const ListButtonsCalcs = () => {
   return (
-    <Stack
-      sx={{
-        width: "100%",
-        gap: "16px",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "12px 0px",
-        border: "1px solid #E5E5E5",
-        borderRadius: "16px",
-        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.05)",
-        paddingBottom: "32px",
-        maxWidth: {
-          xs: "370px",
-          sm: "450px",
-          md: "600px",
-          lg: "700px",
-          xl: "900px",
-        },
-      }}
-    >
+    <>
       <Text
         sx={{
           textTransform: "uppercase",
           fontWeight: "700",
           width: "100%",
           textAlign: "center",
+          marginTop: "16px",
         }}
       >
         Calculadoras de materiais
@@ -82,6 +64,6 @@ export const ListButtonsCalcs = () => {
           icon={<WidgetsIcon fontSize="large" />}
         />
       </Stack>
-    </Stack>
+    </>
   );
 };
