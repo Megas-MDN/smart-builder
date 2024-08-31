@@ -44,6 +44,7 @@ export const ButtonFullRound = ({
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#cacaca",
+          color: "#0a0a0a",
           ...sx,
         }}
       >

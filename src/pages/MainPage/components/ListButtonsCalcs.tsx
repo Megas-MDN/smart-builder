@@ -7,6 +7,7 @@ export const ListButtonsCalcs = () => {
   return (
     <>
       <Text
+        className="shadow-sm"
         sx={{
           textTransform: "uppercase",
           fontWeight: "700",
@@ -30,6 +31,7 @@ export const ListButtonsCalcs = () => {
         Calculadoras de materiais
       </Text>
       <Stack
+        className="shadow-md"
         direction={"row"}
         flexWrap={"wrap"}
         sx={{
@@ -40,7 +42,6 @@ export const ListButtonsCalcs = () => {
           borderRadius: "0 0 16px 16px",
           borderTop: "none",
           width: "100%",
-          boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.05)",
           maxWidth: {
             xs: "360px",
             sm: "450px",
