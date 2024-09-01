@@ -2,8 +2,11 @@ import WidgetsIcon from "@mui/icons-material/Widgets";
 import { Stack } from "@mui/material";
 import { ButtonCalc } from "../../../components/ButtonCalc";
 import { Text } from "../../../components/Text";
+import { RebocoIcon } from "../../../assets/icons/reboco";
+import { useNavigate } from "react-router-dom";
 
 export const ListButtonsCalcs = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Text
@@ -52,6 +55,11 @@ export const ListButtonsCalcs = () => {
         }}
       >
         <ButtonCalc
+          label="Chapisco"
+          onClick={() => navigate("/chapisco")}
+          icon={<RebocoIcon height={"60px"} />}
+        />
+        <ButtonCalc
           label="Alvenaria"
           onClick={() => console.log("clicked")}
           icon={<WidgetsIcon fontSize="large" />}
@@ -63,11 +71,6 @@ export const ListButtonsCalcs = () => {
         />
         <ButtonCalc
           label="Concreto"
-          onClick={() => console.log("clicked")}
-          icon={<WidgetsIcon fontSize="large" />}
-        />
-        <ButtonCalc
-          label="Chapisco"
           onClick={() => console.log("clicked")}
           icon={<WidgetsIcon fontSize="large" />}
         />

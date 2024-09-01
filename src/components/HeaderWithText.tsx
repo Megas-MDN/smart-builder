@@ -3,7 +3,7 @@ import { MainHeader } from "./MainHeader";
 import { Text } from "./Text";
 import HouseIcon from "@mui/icons-material/House";
 
-interface Props {
+export interface IPropsHeaderWithText {
   mainTitle?: string;
   icon?: JSX.Element;
   subText?: string;
@@ -11,6 +11,7 @@ interface Props {
   headerSx?: SxProps;
   textSx?: SxProps;
 }
+
 export const HeaderWithText = ({
   mainTitle = "Smart Obra",
   icon = <HouseIcon fontSize="large" className="text-white" />,
@@ -18,7 +19,7 @@ export const HeaderWithText = ({
   containerSx = {},
   headerSx = {},
   textSx = {},
-}: Props) => {
+}: IPropsHeaderWithText) => {
   return (
     <Stack
       sx={{
