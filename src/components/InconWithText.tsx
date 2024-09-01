@@ -5,7 +5,7 @@ import { Text } from "./Text";
 interface IPropsInconWithText {
   icon?: JSX.Element;
   text?: string;
-  sx?: SxProps;
+  textSx?: SxProps;
   containerSx?: SxProps;
   iconConteinerSx?: SxProps;
 }
@@ -13,7 +13,7 @@ interface IPropsInconWithText {
 export const InconWithText = ({
   icon = <RebocoIcon height={"60px"} width={"60px"} />,
   text = "Calcular Chapisco",
-  sx = {},
+  textSx = {},
   containerSx = {},
   iconConteinerSx = {},
 }: IPropsInconWithText) => {
@@ -46,7 +46,7 @@ export const InconWithText = ({
           fontWeight: "600",
           fontSize: "24px",
           width: "100%",
-          ...sx,
+          ...textSx,
         }}
       >
         {text}

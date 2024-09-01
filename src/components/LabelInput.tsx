@@ -11,6 +11,7 @@ export interface IPropsLabelInput {
   placeholder?: string;
   fixedUnits?: string;
   containerSx?: SxProps;
+  type?: string;
   labelSx?: SxProps;
   inputSx?: SxProps;
   value?: string | number;
@@ -21,6 +22,7 @@ export const LabelInput = ({
   label = "Rendimento:",
   placeholder = "digite o valor",
   fixedUnits = "m²",
+  type = "number",
   onChange = () => {},
   value = "",
   containerSx = {},
@@ -51,7 +53,7 @@ export const LabelInput = ({
       <TextField
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        type="number"
+        type={type}
         sx={{
           backgroundColor: "#FAFAFA",
           "& .MuiOutlinedInput-root": {
