@@ -5,6 +5,7 @@ import {
   SxProps,
   TextField,
 } from "@mui/material";
+import { useRefFocusEffect } from "../hooks/useFocusEffect";
 
 export interface IPropsLabelInput {
   label?: string;
@@ -15,6 +16,7 @@ export interface IPropsLabelInput {
   labelSx?: SxProps;
   inputSx?: SxProps;
   value?: string | number;
+  hasFocusEffect?: boolean;
   onChange?: (value: string) => void;
 }
 
@@ -23,12 +25,15 @@ export const LabelInput = ({
   placeholder = "digite o valor",
   fixedUnits = "m²",
   type = "number",
+  hasFocusEffect = true,
   onChange = () => {},
   value = "",
   containerSx = {},
   labelSx = {},
   inputSx = {},
 }: IPropsLabelInput) => {
+  const { inputRef } = useRefFocusEffect();
+
   return (
     <FormControl
       sx={{
@@ -51,6 +56,7 @@ export const LabelInput = ({
         {label}
       </FormHelperText>
       <TextField
+        {...(hasFocusEffect && { inputRef })}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         type={type}
