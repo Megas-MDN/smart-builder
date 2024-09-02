@@ -1,10 +1,9 @@
 import { Stack } from "@mui/material";
 import { LabelInput } from "../../../components/LabelInput";
-import { useState } from "react";
+import { useChapiscoStore } from "../../../Stores/useChapiscoStore";
 
 export const WallAndPerformance = () => {
-  const [wall, setWall] = useState<string | undefined>();
-  const [performance, setPerformance] = useState<string | undefined>();
+  const { performance, setPerformance, wall, setWall } = useChapiscoStore();
   return (
     <Stack
       sx={{

@@ -1,11 +1,10 @@
 import { Stack } from "@mui/material";
-import { useState } from "react";
 import { LabelInput } from "../../../components/LabelInput";
 import { Text } from "../../../components/Text";
+import { useChapiscoStore } from "../../../Stores/useChapiscoStore";
 
 export const Feature = () => {
-  const [cimento, setCimento] = useState("1");
-  const [areia, setAreia] = useState("3");
+  const { cimento, setCimento, areia, setAreia } = useChapiscoStore();
 
   return (
     <Stack

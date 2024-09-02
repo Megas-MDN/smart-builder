@@ -3,9 +3,10 @@ import { InconWithText } from "../../../components/InconWithText";
 import { RebocoIcon } from "../../../assets/icons/reboco";
 import { ButtonTransparent } from "../../../components/ButtonTransparent";
 import { Text } from "../../../components/Text";
+import { useChapiscoStore } from "../../../Stores/useChapiscoStore";
 
 export const MaterialList = () => {
-  const wall = 360;
+  const { wall, performance, cimento, areia } = useChapiscoStore();
   return (
     <Stack
       sx={{
@@ -51,12 +52,12 @@ export const MaterialList = () => {
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`1 - Cimento: 12,5 sc x 35,00 R$ = R$ 437,50`}</Text>
+        >{`1 - Cimento: 12,5 sc x 35,00 R$ = R$ 437,50 ${performance} ${cimento}`}</Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`2 - Areia grossa: 1,35 m³ x 160,00 R$ = R$ 216,00`}</Text>
+        >{`2 - Areia grossa: 1,35 m³ x 160,00 R$ = R$ 216,00 ${areia}`}</Text>
         <Text
           sx={{
             fontWeight: "600",
