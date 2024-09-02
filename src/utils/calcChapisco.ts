@@ -33,7 +33,7 @@ export const calcChapisco = ({
   const numOfCimento = numOfMass * numCimento;
   const sc = rounded(numOfCimento / 2, 0);
 
-  const numOfAreia = numOfMass * numAreia;
+  const numOfAreia = numOfMass * LATA;
   const m3 = rounded(numOfAreia / 1000);
   const scAreia = rounded(numOfAreia, 0);
 
