@@ -16,7 +16,7 @@ export const MainContainer = ({
 }: Props) => {
   return (
     <Stack
-      className="h-screen bg-gray-100 flex flex-col items-center gap-4 overflow-auto pb-8"
+      className="h-screen bg-gray-100 flex flex-col items-center gap-4 overflow-x-hidden overflow-y-auto pb-8"
       sx={{ ...sx }}
     >
       {isWithHeader && <HeaderWithText {...headerProps} />}

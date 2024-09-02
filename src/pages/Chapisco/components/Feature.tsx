@@ -16,6 +16,7 @@ export const Feature = () => {
         width: "100%",
         background: "#FAFAFA",
         maxWidth: "370px",
+        paddingBottom: "28px",
       }}
     >
       <Text
