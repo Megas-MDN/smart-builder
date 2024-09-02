@@ -59,12 +59,14 @@ export const MaterialList = () => {
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`1 - Cimento: ${sc} sacos`}</Text>
+        >{`1 - Cimento: ${sc} saco${sc > 1 ? "s" : ""}`}</Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`2 - Areia grossa: ${m3} m³ ou ${scAreia} sacos de 18 L`}</Text>
+        >{`2 - Areia grossa: ${m3} m³ ou ${scAreia} saco${
+          scAreia > 1 ? "s" : ""
+        } de 18 L`}</Text>
         {/* <Text
           sx={{
             fontWeight: "600",
