@@ -4,9 +4,16 @@ import { RebocoIcon } from "../../../assets/icons/reboco";
 import { ButtonTransparent } from "../../../components/ButtonTransparent";
 import { Text } from "../../../components/Text";
 import { useChapiscoStore } from "../../../Stores/useChapiscoStore";
+import { calcChapisco } from "../../../utils/calcChapisco";
 
 export const MaterialList = () => {
   const { wall, performance, cimento, areia } = useChapiscoStore();
+  const { sc, m3, scAreia } = calcChapisco({
+    wall,
+    performance,
+    cimento,
+    areia,
+  });
   return (
     <Stack
       sx={{
@@ -52,17 +59,17 @@ export const MaterialList = () => {
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`1 - Cimento: 12,5 sc x 35,00 R$ = R$ 437,50 ${performance} ${cimento}`}</Text>
+        >{`1 - Cimento: ${sc} sacos`}</Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`2 - Areia grossa: 1,35 m³ x 160,00 R$ = R$ 216,00 ${areia}`}</Text>
-        <Text
+        >{`2 - Areia grossa: ${m3} m³ ou ${scAreia} sacos de 18 L`}</Text>
+        {/* <Text
           sx={{
             fontWeight: "600",
           }}
-        >{`Total: R$ 653,50`}</Text>
+        >{`Total: R$ 653,50`}</Text> */}
       </Stack>
     </Stack>
   );
