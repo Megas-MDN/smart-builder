@@ -27,6 +27,8 @@ export const Chapisco = () => {
             height: "35px",
             marginLeft: "8px",
             alignSelf: "flex-start",
+            paddingTop: "6px",
+            paddingLeft: "2px",
           }}
           onClick={() => navigate(-1)}
         />
