@@ -4,6 +4,7 @@ import { ButtonCalc } from "../../../components/ButtonCalc";
 import { Text } from "../../../components/Text";
 import { RebocoIcon } from "../../../assets/icons/reboco";
 import { useNavigate } from "react-router-dom";
+import { EmbolsoIcon } from "../../../assets/icons/embolso";
 
 export const ListButtonsCalcs = () => {
   const navigate = useNavigate();
@@ -60,9 +61,9 @@ export const ListButtonsCalcs = () => {
           icon={<RebocoIcon height={"60px"} />}
         />
         <ButtonCalc
-          label="Alvenaria"
-          onClick={() => console.log("clicked")}
-          icon={<WidgetsIcon fontSize="large" />}
+          label="Reboco"
+          onClick={() => navigate("/reboco")}
+          icon={<EmbolsoIcon height={"58px"} width={"58px"} />}
         />
         <ButtonCalc
           label="Laje"
