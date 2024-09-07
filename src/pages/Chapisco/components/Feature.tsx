@@ -1,7 +1,7 @@
 import { Stack } from "@mui/material";
 import { LabelInput } from "../../../components/LabelInput";
-import { Text } from "../../../components/Text";
 import { useChapiscoStore } from "../../../Stores/useChapiscoStore";
+import { TracoTooltip } from "../../../components/TracoTooltip";
 
 export const Feature = () => {
   const { cimento, setCimento, areia, setAreia } = useChapiscoStore();
@@ -19,13 +19,7 @@ export const Feature = () => {
         paddingBottom: "28px",
       }}
     >
-      <Text
-        sx={{
-          width: "100%",
-          textAlign: "center",
-          fontWeight: "700",
-        }}
-      >{`Traço: ${cimento}:${areia}`}</Text>
+      <TracoTooltip text={`${cimento}:${areia}`} />
       <LabelInput
         label="Cimento"
         value={cimento}
