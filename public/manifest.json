@@ -4,7 +4,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFF",
-  "theme_color": "#000",
+  "theme_color": "#FFF",
   "icons": [
     {
       "src": "/brick-img.png",
