@@ -3,7 +3,7 @@
   "short_name": "Smart Obra",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000",
+  "background_color": "#FFF",
   "theme_color": "#000",
   "icons": [
     {
