@@ -1,7 +1,7 @@
 import { Stack } from "@mui/material";
 import { LabelInput } from "../../../components/LabelInput";
-import { Text } from "../../../components/Text";
 import { useEmbolsoStore } from "../../../Stores/useEmbolso";
+import { TracoTooltip } from "../../../components/TracoTooltip";
 
 export const FeatureEmbolso = () => {
   const { cimento, areiaFina, setCimento, setAreiaFina, cal, setCal } =
@@ -20,13 +20,7 @@ export const FeatureEmbolso = () => {
         paddingBottom: "28px",
       }}
     >
-      <Text
-        sx={{
-          width: "100%",
-          textAlign: "center",
-          fontWeight: "700",
-        }}
-      >{`Traço: ${cimento}:${cal}:${areiaFina}`}</Text>
+      <TracoTooltip text={`${cimento}:${cal}:${areiaFina}`} />
       <LabelInput
         label="Cimento"
         value={cimento}
