@@ -1,6 +1,5 @@
 import { Button, SxProps } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
-import { useNavigate } from "react-router-dom";
 
 interface IProps {
   sx?: SxProps;
@@ -14,11 +13,10 @@ export const ButtonTransparent = ({
   icon = <ShareIcon />,
   ...props
 }: IProps) => {
-  const navigate = useNavigate();
   return (
     <Button
       {...props}
-      onClick={() => navigate("/pdf")}
+      onClick={onClick}
       sx={{
         width: "100%",
         height: "100vh",
