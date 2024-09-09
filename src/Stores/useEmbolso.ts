@@ -20,9 +20,9 @@ interface IEmbolsoState extends IIniteState {
 const INIT_STATE: IIniteState = {
   wall: "",
   thickness: "2",
-  cal: "",
-  cimento: "",
-  areiaFina: "",
+  cal: "2",
+  cimento: "1",
+  areiaFina: "9",
 };
 
 const myMiddlewares = middlewareLocalStorage<IEmbolsoState>("embolsoStore");

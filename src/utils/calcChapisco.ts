@@ -1,4 +1,4 @@
-function rounded(num: number, decs = 2) {
+export function rounded(num: number, decs = 2) {
   const factor = 10 ** decs;
   return Math.ceil(num * factor) / factor;
 }

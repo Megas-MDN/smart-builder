@@ -11,9 +11,9 @@ interface TracoTooltipProps {
 }
 export const TracoTooltip = ({
   text = "",
-  auxText = "Texto de explicação do traço.",
+  auxText = "O traço é a proporção de cada material utilizado.",
   placement = "left-start",
-  delayFactor = 0.7,
+  delayFactor = 0.5,
 }: TracoTooltipProps) => {
   const isText = Boolean(text.split(":").join("").trim());
 

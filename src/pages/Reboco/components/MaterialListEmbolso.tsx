@@ -4,16 +4,18 @@ import { ButtonTransparent } from "../../../components/ButtonTransparent";
 import { Text } from "../../../components/Text";
 import { useEmbolsoStore } from "../../../Stores/useEmbolso";
 import { EmbolsoIcon } from "../../../assets/icons/embolso";
-// import { calcChapisco } from "../../../utils/calcChapisco";
+import { calcEmbolso } from "../../../utils/calcEmbolso";
 
 export const MaterialListEmbolso = () => {
-  const { wall } = useEmbolsoStore();
-  // const { sc, m3, scAreia } = calcChapisco({
-  //   wall,
-  //   performance,
-  //   cimento,
-  //   areia,
-  // });
+  const { wall, cal, cimento, areiaFina, thickness } = useEmbolsoStore();
+  const { scCimento, m3, scCal } = calcEmbolso({
+    wall,
+    cal,
+    cimento,
+    areiaFina,
+    thickness,
+  });
+
   return (
     <Stack
       sx={{
@@ -59,17 +61,17 @@ export const MaterialListEmbolso = () => {
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`1 - Cimento: xxx`}</Text>
+        >{`1 - Cimento: ${scCimento} saco${scCimento > 1 ? "s" : ""}`}</Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`2 - Cal: xxx`}</Text>
+        >{`2 - Cal: ${scCal} saco${scCal > 1 ? "s" : ""}`}</Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`3 - Areia fina: xxx`}</Text>
+        >{`3 - Areia fina: ${m3} m³`}</Text>
         {/* <Text
           sx={{
             fontWeight: "600",
