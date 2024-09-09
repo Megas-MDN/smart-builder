@@ -8,7 +8,7 @@ import { calcEmbolso } from "../../../utils/calcEmbolso";
 
 export const MaterialListEmbolso = () => {
   const { wall, cal, cimento, areiaFina, thickness } = useEmbolsoStore();
-  const { scCimento, m3, scCal } = calcEmbolso({
+  const { scCimento, m3, scCal, scAreiaFina } = calcEmbolso({
     wall,
     cal,
     cimento,
@@ -71,7 +71,9 @@ export const MaterialListEmbolso = () => {
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`3 - Areia fina: ${m3} m³`}</Text>
+        >{`3 - Areia fina: ${m3} m³ ou ${scAreiaFina} saco${
+          scAreiaFina > 1 ? "s" : ""
+        } de 18 L`}</Text>
         {/* <Text
           sx={{
             fontWeight: "600",

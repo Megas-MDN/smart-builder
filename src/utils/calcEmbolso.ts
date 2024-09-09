@@ -14,7 +14,7 @@ export const calcEmbolso = ({
   thickness: string;
 }) => {
   const LATA = 18;
-  const res = { scCimento: 0, m3: 0, scCal: 0 };
+  const res = { scCimento: 0, m3: 0, scCal: 0, scAreiaFina: 0 };
   const numWall = Number(wall);
   const numCal = Number(cal);
   const numCimento = Number(cimento);
@@ -39,6 +39,6 @@ export const calcEmbolso = ({
   const scCimento = rounded(lataCimento / 2, 0);
   const scCal = rounded(lataCal, 0);
   const m3 = rounded((lataAreia * LATA) / 1000, 2);
-
-  return { scCimento, m3, scCal };
+  const scAreiaFina = rounded(lataAreia, 0);
+  return { scCimento, m3, scCal, scAreiaFina };
 };
