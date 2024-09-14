@@ -58,7 +58,7 @@ export const ListButtonsCalcs = () => {
         <ButtonCalc
           label="Chapisco"
           onClick={() => navigate("/chapisco")}
-          icon={<RebocoIcon height={"60px"} />}
+          icon={<RebocoIcon height={"58px"} width={"58px"} />}
         />
         <ButtonCalc
           label="Reboco"
