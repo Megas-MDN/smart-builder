@@ -76,12 +76,12 @@ export const ListButtonsCalcs = () => {
           icon={<WidgetsIcon fontSize="large" />}
         />
         <ButtonCalc
-          label="Lorem"
+          label="Viga"
           onClick={() => console.log("clicked")}
           icon={<WidgetsIcon fontSize="large" />}
         />
         <ButtonCalc
-          label="Ipsum"
+          label="Fundação"
           onClick={() => console.log("clicked")}
           icon={<WidgetsIcon fontSize="large" />}
         />

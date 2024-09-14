@@ -13,8 +13,8 @@ interface IPDFDataState extends IIniteState {
 }
 
 const INIT_STATE: IIniteState = {
-  title: "",
-  texts: [],
+  title: "Tuffy",
+  texts: ["text 1", "text 2"],
 };
 
 const myMiddlewares = middlewareLocalStorage<IPDFDataState>("pdfDataStore");
