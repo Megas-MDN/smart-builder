@@ -38,7 +38,7 @@ export const PDFDocument = (props: IPDFDataState) => {
         <Text style={styles.subtitle}>{props.title}</Text>
         {props.texts.map((text, index) => (
           <Text style={styles.text} key={index}>
-            {index + 1}. {text}
+            {text}
           </Text>
         ))}
         {/* <Text style={styles.text} break>
@@ -126,6 +126,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35,
   },
   title: {
+    paddingTop: 10,
+    borderTop: "3px dashed #E0E0E0",
     fontSize: 24,
     textAlign: "center",
     fontFamily: "Lato",
@@ -137,13 +139,13 @@ const styles = StyleSheet.create({
     fontFamily: "Lato",
   },
   subtitle: {
-    fontSize: 18,
-    margin: 12,
+    fontSize: 16,
+    margin: 10,
     fontFamily: "Lato",
   },
   text: {
-    margin: 12,
-    fontSize: 14,
+    marginBottom: 8,
+    fontSize: 12,
     textAlign: "justify",
     fontFamily: "Lato",
   },
