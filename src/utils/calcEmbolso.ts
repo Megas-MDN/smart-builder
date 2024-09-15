@@ -20,7 +20,6 @@ export const calcEmbolso = ({
   const numCimento = Number(cimento);
   const numAreiaFina = Number(areiaFina);
   const numThickness = Number(thickness);
-  console.log(numWall, numCal, numCimento, numAreiaFina, numThickness);
   if (
     [numWall, numCal, numCimento, numAreiaFina, numThickness].some((x) =>
       isNaN(x),
