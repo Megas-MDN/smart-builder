@@ -2,42 +2,55 @@ import { usePDF } from "@react-pdf/renderer";
 import { usePDFDataStore } from "../Stores/usePDFData";
 import { PDFDocument } from "../pages/Pdf/PDFDocument";
 import moment from "moment";
+import { useEffect, useRef, useState } from "react";
 
 export const useOpenPDF = () => {
-  const pdfStore = usePDFDataStore();
-  const PDFElement = <PDFDocument {...pdfStore} />;
+  const { title, texts, setTitle, setTexts } = usePDFDataStore();
   const [instance, update] = usePDF({
-    document: PDFElement,
+    document: <PDFDocument {...{ title, texts }} />,
   });
+  const url = useRef("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    update(<PDFDocument {...{ title, texts }} />);
+  }, [title, texts, update]);
+
+  useEffect(() => {
+    if (!instance.loading && isOpen && url.current !== instance.url) {
+      setIsOpen(false);
+      url.current = instance.url as string;
+      const newWindow = window.open(instance.url as string, "_blank");
+      if (newWindow) newWindow.focus();
+    }
+  }, [instance]);
 
   const handleDownload = () => {
-    console.log(instance.url);
     const link = document.createElement("a");
-    link.href = instance.url as string;
+    link.href = url.current as string;
     link.setAttribute(
       "download",
-      `${pdfStore.title}-${moment().format("DD-MM-YYYY")}.pdf`,
+      `${title}-${moment().format("DD-MM-YYYY")}.pdf`,
     );
     document.body.appendChild(link);
     link.click();
   };
 
   const handleOpen = () => {
-    const newWindow = window.open(instance.url as string, "_blank");
-    if (newWindow) newWindow.focus();
+    setIsOpen(true);
   };
 
-  const setPDFState = (title: string, text: string[]) => {
-    pdfStore.setTitle(title);
-    pdfStore.setTexts(text);
-    update(<PDFDocument {...pdfStore} />);
+  const setPDFState = (newTitle: string, newText: string[]) => {
+    setTitle(newTitle);
+    setTexts(newText);
   };
 
   return {
-    url: instance.url || "",
+    url: url.current,
     instance,
     handleDownload,
     handleOpen,
     setPDFState,
+    isOpen,
   };
 };

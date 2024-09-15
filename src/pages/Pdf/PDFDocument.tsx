@@ -8,12 +8,17 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer";
-import { IPDFDataState } from "../../Stores/usePDFData";
 import logo from "../../assets/logo.png";
 import moment from "moment";
 import { deployURL } from "../../constants";
 
-export const PDFDocument = (props: IPDFDataState) => {
+export const PDFDocument = ({
+  title,
+  texts,
+}: {
+  title: string;
+  texts: string[];
+}) => {
   return (
     <Document>
       <Page style={styles.body} size="C5">
@@ -35,8 +40,8 @@ export const PDFDocument = (props: IPDFDataState) => {
         </View>
         <Text style={styles.title}>Lista de materiais</Text>
         {/* <Text style={styles.author}>Miguel de Cervantes</Text> */}
-        <Text style={styles.subtitle}>{props.title}</Text>
-        {props.texts.map((text, index) => (
+        <Text style={styles.subtitle}>{title}</Text>
+        {texts.map((text, index) => (
           <Text style={styles.text} key={index}>
             {text}
           </Text>
