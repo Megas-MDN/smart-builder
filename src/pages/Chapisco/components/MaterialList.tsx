@@ -5,6 +5,8 @@ import { ButtonTransparent } from "../../../components/ButtonTransparent";
 import { Text } from "../../../components/Text";
 import { useChapiscoStore } from "../../../Stores/useChapiscoStore";
 import { calcChapisco } from "../../../utils/calcChapisco";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import { useOpenPDF } from "../../../hooks/useOpenPDF";
 
 export const MaterialList = () => {
   const { wall, performance, cimento, areia } = useChapiscoStore();
@@ -14,6 +16,21 @@ export const MaterialList = () => {
     cimento,
     areia,
   });
+  const { setPDFState, handleOpen } = useOpenPDF();
+
+  const title = `Chapisco | Área total: ${wall} m²`;
+  const texts = [
+    `1 - Cimento: ${sc} saco${sc > 1 ? "s" : ""}`,
+    `2 - Areia grossa: ${m3} m³ ou ${scAreia} saco${
+      scAreia > 1 ? "s" : ""
+    } de 18 L`,
+  ];
+
+  const handleClick = () => {
+    setPDFState(title, texts);
+    handleOpen();
+  };
+
   return (
     <Stack
       sx={{
@@ -43,7 +60,7 @@ export const MaterialList = () => {
           }}
           icon={<RebocoIcon height={"40px"} width={"40px"} />}
         />
-        <ButtonTransparent />
+        <ButtonTransparent onClick={handleClick} icon={<PictureAsPdfIcon />} />
       </Stack>
       <Stack
         sx={{
@@ -54,19 +71,23 @@ export const MaterialList = () => {
           sx={{
             fontWeight: "600",
           }}
-        >{`Chapisco | Área total: ${wall} m²`}</Text>
+        >
+          {title}
+        </Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`1 - Cimento: ${sc} saco${sc > 1 ? "s" : ""}`}</Text>
+        >
+          {texts[0]}
+        </Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`2 - Areia grossa: ${m3} m³ ou ${scAreia} saco${
-          scAreia > 1 ? "s" : ""
-        } de 18 L`}</Text>
+        >
+          {texts[1]}
+        </Text>
         {/* <Text
           sx={{
             fontWeight: "600",

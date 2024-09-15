@@ -5,6 +5,8 @@ import { Text } from "../../../components/Text";
 import { useEmbolsoStore } from "../../../Stores/useEmbolso";
 import { EmbolsoIcon } from "../../../assets/icons/embolso";
 import { calcEmbolso } from "../../../utils/calcEmbolso";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import { useOpenPDF } from "../../../hooks/useOpenPDF";
 
 export const MaterialListEmbolso = () => {
   const { wall, cal, cimento, areiaFina, thickness } = useEmbolsoStore();
@@ -15,6 +17,21 @@ export const MaterialListEmbolso = () => {
     areiaFina,
     thickness,
   });
+  const { setPDFState, handleOpen } = useOpenPDF();
+
+  const title = `Embolso | Área total: ${wall} m²`;
+  const texts = [
+    `1 - Cimento: ${scCimento} saco${scCimento > 1 ? "s" : ""}`,
+    `2 - Cal: ${scCal} saco${scCal > 1 ? "s" : ""}`,
+    `3 - Areia fina: ${m3} m³ ou ${scAreiaFina} saco${
+      scAreiaFina > 1 ? "s" : ""
+    } de 18 L`,
+  ];
+
+  const handleClick = () => {
+    setPDFState(title, texts);
+    handleOpen();
+  };
 
   return (
     <Stack
@@ -45,7 +62,7 @@ export const MaterialListEmbolso = () => {
           }}
           icon={<EmbolsoIcon height={"40px"} width={"40px"} />}
         />
-        <ButtonTransparent />
+        <ButtonTransparent onClick={handleClick} icon={<PictureAsPdfIcon />} />
       </Stack>
       <Stack
         sx={{
@@ -56,24 +73,30 @@ export const MaterialListEmbolso = () => {
           sx={{
             fontWeight: "600",
           }}
-        >{`Embolso | Área total: ${wall} m²`}</Text>
+        >
+          {title}
+        </Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`1 - Cimento: ${scCimento} saco${scCimento > 1 ? "s" : ""}`}</Text>
+        >
+          {texts[0]}
+        </Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`2 - Cal: ${scCal} saco${scCal > 1 ? "s" : ""}`}</Text>
+        >
+          {texts[1]}
+        </Text>
         <Text
           sx={{
             borderBottom: "1px solid #E0E0E0",
           }}
-        >{`3 - Areia fina: ${m3} m³ ou ${scAreiaFina} saco${
-          scAreiaFina > 1 ? "s" : ""
-        } de 18 L`}</Text>
+        >
+          {texts[2]}
+        </Text>
         {/* <Text
           sx={{
             fontWeight: "600",

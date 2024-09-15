@@ -6,7 +6,7 @@ interface IIniteState {
   texts: string[];
 }
 
-interface IPDFDataState extends IIniteState {
+export interface IPDFDataState extends IIniteState {
   setTitle: (title: string) => void;
   setTexts: (texts: string[]) => void;
   reset: () => void;
