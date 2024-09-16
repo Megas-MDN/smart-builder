@@ -19,7 +19,7 @@ export const MaterialListEmbolso = () => {
   });
   const { setPDFState, handleOpen } = useOpenPDF();
 
-  const title = `Embolso | Área total: ${wall} m²`;
+  const title = `Reboco | Área total: ${wall} m²`;
   const texts = [
     `1 - Cimento: ${scCimento} saco${scCimento > 1 ? "s" : ""}`,
     `2 - Cal: ${scCal} saco${scCal > 1 ? "s" : ""}`,
